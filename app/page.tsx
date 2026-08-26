@@ -2,8 +2,10 @@ import {
   CourseCategories,
   FaqJsonLd,
   FeaturedCourses,
+  FinalCta,
   GetInTouch,
   Hero,
+  SuccessStories,
 } from "@/components/home";
 import { OrganizationJsonLd } from "@/components/seo/OrganizationJsonLd";
 
@@ -17,6 +19,8 @@ export default function Home() {
         <CourseCategories />
         <GetInTouch />
         <FeaturedCourses />
+        <SuccessStories />
+        <FinalCta />
       </main>
     </>
   );

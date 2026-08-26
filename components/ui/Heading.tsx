@@ -39,8 +39,7 @@ export function Heading({
       className={cn(
         sizeClasses[resolvedSize],
         serif && "text-display-serif",
-        muted && "text-text-muted",
-        invert && "text-white",
+        invert ? "text-white" : muted ? "text-text-muted" : "text-foreground",
         className,
       )}
       {...props}

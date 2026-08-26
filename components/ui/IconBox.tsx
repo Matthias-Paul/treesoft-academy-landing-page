@@ -45,7 +45,7 @@ export function IconBox({
       ) : null}
       {href ? (
         <span className="icon-box-desc mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-brand-dark transition-colors group-hover:text-white">
-          View course
+          View details
           <svg
             width="14"
             height="14"

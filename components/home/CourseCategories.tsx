@@ -81,11 +81,11 @@ export function CourseCategories() {
     <Section id="categories" spacious aria-labelledby="categories-heading">
       <div className="mx-auto mb-10 max-w-2xl text-center md:mb-14">
         <Heading as={2} size="h2" id="categories-heading">
-          Browse Courses By Categories
+          Explore Our Courses
         </Heading>
         <Text size="lead" tone="muted" className="mt-3">
-          Explore structured learning paths designed to take you from
-          fundamentals to job-ready skills.
+          Choose a learning path to see program details, outcomes, and who
+          it&apos;s designed for.
         </Text>
       </div>
 
