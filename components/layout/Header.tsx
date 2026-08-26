@@ -142,17 +142,13 @@ export function Header() {
             })}
           </nav>
 
-          <div className="flex  items-center gap-3">
-            <div className="text-white" >
-            <a
-              href={siteConfig.cta.href}
-              className="hidden min-h-10 items-center justify-center rounded-md bg-brand-dark px-5 text-[0.9375rem] font-medium text-white transition-colors duration-250 ease-[var(--ease)] hover:bg-brand-mid focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-dark focus-visible:ring-offset-2 sm:inline-flex"
+          <div className="flex items-center gap-3">
+            <Link
+              href={siteConfig.itStudentCta.href}
+              className="hidden min-h-10 items-center justify-center rounded-md bg-brand-dark px-4 text-[0.875rem] font-medium text-white transition-colors duration-250 ease-[var(--ease)] hover:bg-brand-mid focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-dark focus-visible:ring-offset-2 sm:inline-flex sm:px-5 sm:text-[0.9375rem]"
             >
-              {siteConfig.cta.label}
-            </a>
-
-            </div>
-            
+              {siteConfig.itStudentCta.label}
+            </Link>
 
             <button
               type="button"
@@ -239,13 +235,13 @@ export function Header() {
           </nav>
 
           <div className="border-t border-white/10 p-5">
-            <a
-              href={siteConfig.cta.href}
+            <Link
+              href={siteConfig.itStudentCta.href}
               className="inline-flex min-h-12 w-full items-center justify-center rounded-md bg-brand-dark px-5 text-base font-medium text-white transition-colors hover:bg-brand-mid focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand"
               onClick={() => setMenuOpen(false)}
             >
-              {siteConfig.cta.label}
-            </a>
+              {siteConfig.itStudentCta.label}
+            </Link>
           </div>
         </div>
       </div>

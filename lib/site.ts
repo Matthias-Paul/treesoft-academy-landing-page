@@ -16,6 +16,11 @@ export const siteConfig = {
     label: "Reach Out Now",
     href: "mailto:temitope@treesoft.ng",
   },
+  /** Primary header CTA — IT Student landing (PRD). */
+  itStudentCta: {
+    label: "Apply as an IT Student",
+    href: "/it-student",
+  },
   social: [
     { label: "Facebook", network: "facebook", href: "#" },
     { label: "X (Twitter)", network: "twitter", href: "#" },
@@ -29,6 +34,7 @@ export const siteConfig = {
   footerAbout: [
     { label: "Contact Us", href: "mailto:temitope@treesoft.ng" },
     { label: "Courses", href: "/courses" },
+    { label: "IT Students", href: "/it-student" },
     { label: "About Us", href: "/about" },
   ],
   footerLegal: [
