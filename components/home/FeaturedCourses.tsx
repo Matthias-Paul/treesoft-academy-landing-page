@@ -3,24 +3,6 @@ import Link from "next/link";
 import { ButtonLink, Heading, Section, Text } from "@/components/ui";
 import { courseCategories, getCourseHref } from "@/lib/courses";
 
-function CheckIcon() {
-  return (
-    <svg
-      width="20"
-      height="20"
-      viewBox="0 0 20 20"
-      fill="none"
-      aria-hidden="true"
-      className="shrink-0 text-brand"
-    >
-      <path
-        d="M10 1.67A8.33 8.33 0 1 0 10 18.33 8.33 8.33 0 0 0 10 1.67Zm3.77 6.1-4.25 4.25a.83.83 0 0 1-1.18 0L6.23 9.91a.83.83 0 1 1 1.18-1.18l1.52 1.52 3.66-3.66a.83.83 0 1 1 1.18 1.18Z"
-        fill="currentColor"
-      />
-    </svg>
-  );
-}
-
 export function FeaturedCourses() {
   const leftCourses = courseCategories.slice(0, 3);
   const rightCourses = courseCategories.slice(3);
@@ -60,7 +42,10 @@ export function FeaturedCourses() {
                     href={getCourseHref(course.slug)}
                     className="group flex items-center gap-3 rounded-md px-1 py-1.5 text-[0.9375rem] font-medium text-foreground transition-colors duration-250 ease-[var(--ease)] hover:text-brand focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand"
                   >
-                    <CheckIcon />
+                    <span
+                      className="size-1.5 shrink-0 rounded-full bg-black"
+                      aria-hidden="true"
+                    />
                     <span className="underline-offset-4 group-hover:underline">
                       {course.title}
                     </span>
@@ -76,7 +61,10 @@ export function FeaturedCourses() {
                     href={getCourseHref(course.slug)}
                     className="group flex items-center gap-3 rounded-md px-1 py-1.5 text-[0.9375rem] font-medium text-foreground transition-colors duration-250 ease-[var(--ease)] hover:text-brand focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand"
                   >
-                    <CheckIcon />
+                    <span
+                      className="size-1.5 shrink-0 rounded-full bg-black"
+                      aria-hidden="true"
+                    />
                     <span className="underline-offset-4 group-hover:underline">
                       {course.title}
                     </span>

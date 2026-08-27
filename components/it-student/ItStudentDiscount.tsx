@@ -24,10 +24,6 @@ export function ItStudentDiscount() {
             key={point.title}
             className="rounded-[10px] border border-border bg-white p-6 md:p-7"
           >
-            <div
-              className="mb-3 h-1 w-10 rounded-full bg-brand"
-              aria-hidden="true"
-            />
             <Heading as={3} size="h5" className="mb-2">
               {point.title}
             </Heading>

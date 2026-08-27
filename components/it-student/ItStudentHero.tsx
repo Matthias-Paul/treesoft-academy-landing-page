@@ -47,10 +47,6 @@ export function ItStudentHero() {
 
       <div className="relative z-10 mx-auto grid w-full max-w-container items-center gap-10 px-5 py-20 sm:px-8 md:py-24 lg:grid-cols-[1fr_0.9fr] lg:gap-12 lg:px-[2.1875rem] lg:py-[7.5rem]">
         <div className="hero-reveal hero-reveal-1 text-center lg:text-left">
-          <p className="mb-4 text-sm font-semibold uppercase tracking-[0.14em] text-brand">
-            Treesoft Academy · IT / SIWES
-          </p>
-
           <h1
             id="it-student-hero-heading"
             className="text-display text-white"
@@ -79,7 +75,7 @@ export function ItStudentHero() {
               href="#programs"
               variant="outline"
               size="lg"
-              className="w-full min-w-[11rem] border-white text-white hover:border-white hover:bg-white hover:text-brand-dark sm:w-auto"
+              className="w-full min-w-[11rem] border-white text-white hover:border-white  hover:text-brand-dark sm:w-auto"
             >
               {itStudentHero.secondaryCta}
             </ButtonLink>

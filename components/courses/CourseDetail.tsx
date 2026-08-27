@@ -1,35 +1,29 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ButtonLink, Heading, Section, Text } from "@/components/ui";
-import {
-  formatCoursePrice,
-  type CourseCategory,
-} from "@/lib/courses";
+import { formatCoursePrice, type CourseCategory } from "@/lib/courses";
 import { siteConfig } from "@/lib/site";
 
 type CourseDetailProps = {
   course: CourseCategory;
 };
 
-function CheckItem({ children }: { children: React.ReactNode }) {
+function DotList({ items }: { items: readonly string[] }) {
   return (
-    <li className="flex gap-3 text-[0.9375rem] leading-relaxed text-text-soft">
-      <span
-        className="mt-0.5 inline-flex size-5 shrink-0 items-center justify-center rounded-full bg-brand-soft text-brand-dark"
-        aria-hidden
-      >
-        <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
-          <path
-            d="M2.5 6.2 4.8 8.5 9.5 3.5"
-            stroke="currentColor"
-            strokeWidth="1.75"
-            strokeLinecap="round"
-            strokeLinejoin="round"
+    <ul className="m-0 flex list-none flex-col gap-2.5 p-0">
+      {items.map((item) => (
+        <li
+          key={item}
+          className="flex gap-3 text-[0.9375rem] leading-relaxed text-text-soft"
+        >
+          <span
+            className="mt-2 size-1.5 shrink-0 rounded-full bg-black"
+            aria-hidden="true"
           />
-        </svg>
-      </span>
-      <span>{children}</span>
-    </li>
+          <span>{item}</span>
+        </li>
+      ))}
+    </ul>
   );
 }
 
@@ -43,10 +37,10 @@ function DetailBlock({
   children: React.ReactNode;
 }) {
   return (
-    <section id={id} className="flex flex-col gap-5 scroll-mt-28">
-      <Heading as={2} size="h3">
+    <section id={id} className="scroll-mt-28">
+      <h2 className="mb-4 text-xl font-bold tracking-tight text-foreground md:text-[1.375rem]">
         {title}
-      </Heading>
+      </h2>
       {children}
     </section>
   );
@@ -69,23 +63,30 @@ export function CourseDetail({ course }: CourseDetailProps) {
           sizes="100vw"
           className="object-cover object-center"
         />
-        <div className="absolute inset-0 bg-brand-dark/70" aria-hidden="true" />
-        <div className="relative z-10 mx-auto w-full max-w-container px-5 py-20 sm:px-8 md:py-28 lg:px-[2.1875rem]">
-          <nav aria-label="Breadcrumb" className="mb-6">
-            <ol className="flex flex-wrap items-center gap-2 text-sm text-white/80">
+        <div className="absolute inset-0 bg-black/55" aria-hidden="true" />
+
+        <div className="relative z-10 mx-auto w-full max-w-container px-5 py-16 sm:px-8 md:py-20 lg:px-[2.1875rem] lg:py-24">
+          <nav aria-label="Breadcrumb" className="mb-8">
+            <ol className="flex flex-wrap items-center gap-2 text-sm text-white/70">
               <li>
-                <Link href="/" className="hover:text-white">
+                <Link
+                  href="/"
+                  className="transition-colors hover:text-white"
+                >
                   Home
                 </Link>
               </li>
               <li aria-hidden="true">/</li>
               <li>
-                <Link href="/courses" className="hover:text-white">
+                <Link
+                  href="/courses"
+                  className="transition-colors hover:text-white"
+                >
                   Courses
                 </Link>
               </li>
               <li aria-hidden="true">/</li>
-              <li className="text-white">{course.title}</li>
+              <li className="text-white/90">{course.title}</li>
             </ol>
           </nav>
 
@@ -96,103 +97,70 @@ export function CourseDetail({ course }: CourseDetailProps) {
             {course.summary}
           </Text>
 
-          <div className="mt-8 flex flex-wrap gap-3">
-            <span className="rounded-md bg-white/15 px-3 py-1.5 text-sm font-medium text-white backdrop-blur-sm">
-              {course.duration}
+          <p className="mt-8 max-w-2xl text-sm leading-relaxed text-white/80">
+            {course.duration}
+            <span className="mx-2 text-white/40" aria-hidden="true">
+              ·
             </span>
-            <span className="rounded-md bg-white/15 px-3 py-1.5 text-sm font-medium text-white backdrop-blur-sm">
-              {course.level}
+            {course.level}
+            <span className="mx-2 text-white/40" aria-hidden="true">
+              ·
             </span>
-            <span className="rounded-md bg-white/15 px-3 py-1.5 text-sm font-medium text-white backdrop-blur-sm">
-              {course.format}
-            </span>
-            <span className="rounded-md bg-white px-3 py-1.5 text-sm font-semibold text-brand-dark">
-              {price}
-            </span>
-          </div>
+            {course.format}
+          </p>
         </div>
       </section>
 
       <Section spacious>
-        <div className="flex flex-col gap-12 lg:flex-row lg:gap-16">
-          <div className="flex min-w-0 flex-1 flex-col gap-12">
+        <div className="flex flex-col gap-14 lg:flex-row lg:items-start lg:gap-16 xl:gap-24">
+          <div className="flex min-w-0 flex-1 flex-col gap-12 md:gap-14">
             <DetailBlock id="about" title="About this program">
-              <Text size="body" tone="soft" className="max-w-3xl text-[1.0625rem] leading-relaxed">
+              <p className="m-0 max-w-2xl text-[1.0625rem] leading-[1.75] text-text-soft">
                 {course.about}
-              </Text>
+              </p>
             </DetailBlock>
 
             <DetailBlock id="learn" title="What you'll learn">
-              <ul className="space-y-3">
-                {course.outcomes.map((item) => (
-                  <CheckItem key={item}>{item}</CheckItem>
-                ))}
-              </ul>
+              <DotList items={course.outcomes} />
             </DetailBlock>
 
             <DetailBlock id="outline" title="Course outline">
-              <div className="flex flex-col gap-4">
+              <ol className="m-0 flex list-none flex-col gap-7 p-0">
                 {course.outline.map((module, index) => (
-                  <article
-                    key={module.title}
-                    className="rounded-[10px] border border-border bg-surface-muted/60 p-5 md:p-6"
-                  >
-                    <div className="flex items-start gap-3">
-                      <span className="inline-flex size-8 shrink-0 items-center justify-center rounded-md bg-brand-dark text-sm font-bold text-white">
-                        {index + 1}
+                  <li key={module.title} className="m-0">
+                    <p className="m-0 text-[0.9375rem] font-bold text-foreground">
+                      <span className="mr-2 font-medium text-text-muted">
+                        {String(index + 1).padStart(2, "0")}
                       </span>
-                      <div className="min-w-0 flex-1">
-                        <Heading as={3} size="h5">
-                          {module.title}
-                        </Heading>
-                        <ul className="mt-3 space-y-2">
-                          {module.lessons.map((lesson) => (
-                            <li
-                              key={lesson}
-                              className="flex gap-2 text-sm leading-relaxed text-text-soft"
-                            >
-                              <span
-                                className="mt-2 size-1.5 shrink-0 rounded-full bg-brand"
-                                aria-hidden
-                              />
-                              {lesson}
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                    </div>
-                  </article>
+                      {module.title}
+                    </p>
+                    <ul className="mt-2.5 ml-[1.875rem] flex list-none flex-col gap-1.5 p-0">
+                      {module.lessons.map((lesson) => (
+                        <li
+                          key={lesson}
+                          className="text-sm leading-relaxed text-text-soft"
+                        >
+                          {lesson}
+                        </li>
+                      ))}
+                    </ul>
+                  </li>
                 ))}
-              </div>
+              </ol>
             </DetailBlock>
 
             <DetailBlock id="requirements" title="Requirements">
-              <ul className="space-y-3">
-                {course.requirements.map((item) => (
-                  <CheckItem key={item}>{item}</CheckItem>
-                ))}
-              </ul>
+              <DotList items={course.requirements} />
             </DetailBlock>
 
             <DetailBlock id="careers" title="Career outcomes">
-              <ul className="grid gap-3 sm:grid-cols-2">
-                {course.careerOutcomes.map((role) => (
-                  <li
-                    key={role}
-                    className="rounded-[10px] border border-border bg-white px-4 py-3 text-sm font-semibold text-foreground shadow-[0_8px_24px_0_rgba(192,198,211,0.18)]"
-                  >
-                    {role}
-                  </li>
-                ))}
-              </ul>
+              <p className="m-0 max-w-xl text-[0.9375rem] leading-relaxed text-text-soft">
+                {course.careerOutcomes.join(" · ")}
+              </p>
             </DetailBlock>
 
             <DetailBlock id="audience" title="Who this course is for">
-              <ul className="space-y-3">
-                {course.whoFor.map((item) => (
-                  <CheckItem key={item}>{item}</CheckItem>
-                ))}
-              </ul>
+              <DotList items={course.whoFor} />
             </DetailBlock>
           </div>
 
@@ -257,13 +225,11 @@ export function CourseDetail({ course }: CourseDetailProps) {
 
               <div className="rounded-[10px] border border-border bg-surface-muted/80 p-6">
                 <Heading as={3} size="h5">
-                  What’s included
+                  What&apos;s included
                 </Heading>
-                <ul className="mt-4 space-y-3">
-                  {course.includes.map((item) => (
-                    <CheckItem key={item}>{item}</CheckItem>
-                  ))}
-                </ul>
+                <div className="mt-4">
+                  <DotList items={course.includes} />
+                </div>
               </div>
             </div>
           </aside>

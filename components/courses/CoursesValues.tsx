@@ -1,50 +1,42 @@
 import Image from "next/image";
-import { Grid, Heading, Section, Text } from "@/components/ui";
+import { Heading, Section, Text } from "@/components/ui";
 import { coursesPageValues } from "@/lib/about";
 import { siteConfig } from "@/lib/site";
 
 export function CoursesValues() {
   return (
     <Section id="values" spacious aria-labelledby="courses-values-heading">
-      <div className="flex w-full flex-col items-center gap-10 lg:flex-row lg:items-center lg:gap-14 xl:gap-16">
-        <div className="relative aspect-[580/680] w-full max-w-md overflow-hidden rounded-[10px] lg:max-w-none lg:w-[42%]">
+      <div className="flex w-full flex-col gap-12 lg:flex-row lg:items-start lg:gap-16 xl:gap-20">
+        <div className="relative aspect-[4/5] w-full max-w-sm overflow-hidden rounded-[10px] sm:max-w-md lg:sticky lg:top-24 lg:max-w-none lg:w-[40%]">
           <Image
             src="/images/jacqueline-day-1SapfOEZN2g-unsplash.png"
             alt="Treesoft Academy learner focused on building with modern tools"
             fill
-            sizes="(max-width: 1024px) 90vw, 42vw"
+            sizes="(max-width: 1024px) 90vw, 40vw"
             className="object-cover object-center"
           />
         </div>
 
-        <div className="w-full lg:w-[58%]">
+        <div className="w-full lg:w-[60%] lg:pt-2">
           <Heading as={2} size="h2" id="courses-values-heading">
             Our Values
           </Heading>
-          <Text size="lead" tone="muted" className="mt-3 max-w-xl">
-            The principles that shape how we teach, mentor, and grow every
-            learner at {siteConfig.name}.
+          <Text size="lead" tone="muted" className="mt-4 max-w-md">
+            How we teach, mentor, and grow every learner at {siteConfig.name}.
           </Text>
 
-          <Grid cols={2} gap="md" className="mt-8">
+          <ul className="mt-10 grid list-none grid-cols-1 gap-x-12 gap-y-8 p-0 sm:grid-cols-2">
             {coursesPageValues.map((value) => (
-              <article
-                key={value.title}
-                className="rounded-[10px] border border-border bg-surface-muted/60 p-5 transition-colors duration-250 ease-[var(--ease)] hover:border-brand/30 hover:bg-white hover:shadow-[0_16px_40px_0_rgba(192,198,211,0.25)] md:p-6"
-              >
-                <div
-                  className="mb-3 h-1 w-10 rounded-full bg-brand"
-                  aria-hidden="true"
-                />
-                <Heading as={3} size="h5" className="mb-2">
+              <li key={value.title} className="m-0 max-w-xs">
+                <h3 className="text-base font-bold text-foreground">
                   {value.title}
-                </Heading>
-                <Text size="small" tone="muted">
+                </h3>
+                <p className="mt-2 text-sm leading-relaxed text-text-muted">
                   {value.description}
-                </Text>
-              </article>
+                </p>
+              </li>
             ))}
-          </Grid>
+          </ul>
         </div>
       </div>
     </Section>

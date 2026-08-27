@@ -19,7 +19,7 @@ export function FinalCta() {
           className="object-cover object-center"
         />
         <div
-          className="absolute inset-0 bg-brand-dark/70"
+          className="absolute inset-0 bg-brand-dark/5"
           aria-hidden="true"
         />
 

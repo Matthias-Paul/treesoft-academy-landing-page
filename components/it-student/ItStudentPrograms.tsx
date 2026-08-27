@@ -43,9 +43,7 @@ export function ItStudentPrograms() {
               <Text size="body" tone="muted" className="flex-1">
                 {track.outcomeLine}
               </Text>
-              <p className="mt-4 text-sm font-medium text-brand-dark">
-                {track.format}
-              </p>
+
               <div className="mt-6 flex flex-col gap-2.5 sm:flex-row sm:flex-wrap">
                 <ButtonLink
                   href={itStudentConfig.applyUrl}

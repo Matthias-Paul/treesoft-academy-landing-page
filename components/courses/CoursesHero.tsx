@@ -37,7 +37,7 @@ export function CoursesHero() {
               href={siteConfig.cta.href}
               variant="outline"
               size="lg"
-              className="border-white text-white hover:border-white hover:bg-white hover:text-brand-dark"
+              className="border-white text-white hover:border-white "
             >
               Talk to an Advisor
             </ButtonLink>

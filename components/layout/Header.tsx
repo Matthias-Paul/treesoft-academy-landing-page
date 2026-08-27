@@ -82,16 +82,11 @@ export function Header() {
 
       <header
         className={cn(
-          "sticky top-0 z-50 w-full bg-white transition-[box-shadow,height] duration-250 ease-[var(--ease)]",
+          "sticky top-0 z-50 w-full bg-white transition-shadow duration-250 ease-[var(--ease)]",
           scrolled ? "shadow-header" : "shadow-none",
         )}
       >
-        <div
-          className={cn(
-            "mx-auto flex w-full max-w-container items-center justify-between gap-4 px-5 transition-[min-height] duration-250 ease-[var(--ease)] sm:px-8 lg:px-[2.1875rem]",
-            scrolled ? "min-h-16" : "min-h-[4.5rem] md:min-h-[6.75rem]",
-          )}
-        >
+        <div className="mx-auto flex w-full max-w-container min-h-16 items-center justify-between gap-4 px-5 sm:px-8 lg:px-[2.1875rem]">
           <Link
             href="/"
             className="relative z-10 flex shrink-0 items-center gap-2.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2"
@@ -103,17 +98,9 @@ export function Header() {
               width={70}
               height={120}
               priority
-              className={cn(
-                "h-auto w-auto object-contain transition-[height] duration-250 ease-[var(--ease)]",
-                scrolled ? "h-9" : "h-10 md:h-12",
-              )}
+              className="h-9 w-auto object-contain"
             />
-            <span
-              className={cn(
-                "hidden font-bold leading-none text-brand sm:inline",
-                scrolled ? "text-base" : "text-lg md:text-xl",
-              )}
-            >
+            <span className="hidden text-base font-bold leading-none text-black sm:inline">
               {siteConfig.name}
             </span>
           </Link>
@@ -145,7 +132,7 @@ export function Header() {
           <div className="flex items-center gap-3">
             <Link
               href={siteConfig.itStudentCta.href}
-              className="hidden min-h-10 items-center justify-center rounded-md bg-brand-dark px-4 text-[0.875rem] font-medium text-white transition-colors duration-250 ease-[var(--ease)] hover:bg-brand-mid focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-dark focus-visible:ring-offset-2 sm:inline-flex sm:px-5 sm:text-[0.9375rem]"
+              className="hidden min-h-10 items-center justify-center rounded-md bg-brand px-4 text-[0.875rem] font-medium text-white transition-colors duration-250 ease-[var(--ease)] hover:bg-brand-dark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2 sm:inline-flex sm:px-5 sm:text-[0.9375rem]"
             >
               {siteConfig.itStudentCta.label}
             </Link>
@@ -237,7 +224,7 @@ export function Header() {
           <div className="border-t border-white/10 p-5">
             <Link
               href={siteConfig.itStudentCta.href}
-              className="inline-flex min-h-12 w-full items-center justify-center rounded-md bg-brand-dark px-5 text-base font-medium text-white transition-colors hover:bg-brand-mid focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand"
+              className="inline-flex min-h-12 w-full items-center justify-center rounded-md bg-brand px-5 text-base font-medium text-white transition-colors hover:bg-brand-dark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand"
               onClick={() => setMenuOpen(false)}
             >
               {siteConfig.itStudentCta.label}
