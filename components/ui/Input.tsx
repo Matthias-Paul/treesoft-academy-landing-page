@@ -7,7 +7,15 @@ export type InputProps = React.InputHTMLAttributes<HTMLInputElement> & {
   invalid?: boolean;
 };
 
-export function Input({ className, invalid, type = "text", ...props }: InputProps) {
+export function Input({
+  className,
+  invalid,
+  type = "text",
+  value,
+  ...props
+}: InputProps) {
+  const isFile = type === "file";
+
   return (
     <input
       type={type}
@@ -18,6 +26,7 @@ export function Input({ className, invalid, type = "text", ...props }: InputProp
         className,
       )}
       {...props}
+      {...(isFile ? {} : { value: value ?? "" })}
     />
   );
 }
@@ -26,18 +35,25 @@ export type TextareaProps = React.TextareaHTMLAttributes<HTMLTextAreaElement> & 
   invalid?: boolean;
 };
 
-export function Textarea({ className, invalid, rows = 4, ...props }: TextareaProps) {
+export function Textarea({
+  className,
+  invalid,
+  rows = 4,
+  value,
+  ...props
+}: TextareaProps) {
   return (
     <textarea
       rows={rows}
       aria-invalid={invalid || undefined}
       className={cn(
         fieldBase,
-        "min-h-[8rem] resize-y",
-        invalid && "border-red-500 focus-visible:ring-red-500/30",
+        "min-h-[8rem] resize-none ",
+        invalid && "border-red-500 resize-none focus-visible:ring-red-500/30",
         className,
       )}
       {...props}
+      value={value ?? ""}
     />
   );
 }

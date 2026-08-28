@@ -33,14 +33,14 @@ export function FinalCta() {
           </Text>
 
           <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
-            <ButtonLink href="/courses" variant="white" size="lg">
-              Enroll Now
+            <ButtonLink href="#" variant="white" size="lg">
+              {siteConfig.portal.label}
             </ButtonLink>
             <ButtonLink
               href={siteConfig.cta.href}
               variant="outline"
               size="lg"
-              className="border-white text-white hover:border-white hover:bg-white hover:text-brand-dark"
+              className="border-white text-white hover:border-white hover:text-brand"
             >
               Talk to an Advisor
             </ButtonLink>

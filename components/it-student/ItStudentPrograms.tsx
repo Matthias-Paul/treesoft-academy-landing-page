@@ -1,6 +1,6 @@
-import Image from "next/image";
 import Link from "next/link";
 import { ButtonLink, Grid, Heading, Section, Text } from "@/components/ui";
+import { CourseCard } from "@/components/courses/CourseCard";
 import {
   getItStudentTracks,
   itStudentConfig,
@@ -23,28 +23,16 @@ export function ItStudentPrograms() {
 
       <Grid cols={3} gap="lg">
         {tracks.map((track) => (
-          <article
+          <CourseCard
             key={track.slug}
-            className="flex h-full flex-col overflow-hidden rounded-[10px] bg-white shadow-[0_16px_40px_0_rgba(192,198,211,0.22)] transition-[transform,box-shadow] duration-250 ease-[var(--ease)] hover:-translate-y-1 hover:shadow-[0_24px_50px_0_rgba(0,86,18,0.12)]"
-          >
-            <div className="relative aspect-[16/10] overflow-hidden bg-surface-muted">
-              <Image
-                src={track.image}
-                alt=""
-                fill
-                sizes="(max-width: 640px) 90vw, (max-width: 1024px) 45vw, 30vw"
-                className="object-cover object-center"
-              />
-            </div>
-            <div className="flex flex-1 flex-col p-6 md:p-7">
-              <Heading as={3} size="h4" className="mb-2.5">
-                {track.title}
-              </Heading>
-              <Text size="body" tone="muted" className="flex-1">
-                {track.outcomeLine}
-              </Text>
-
-              <div className="mt-6 flex flex-col gap-2.5 sm:flex-row sm:flex-wrap">
+            href={track.href}
+            title={track.title}
+            description={track.outcomeLine}
+            image={track.image}
+            meta={track.format}
+            ctaLabel="View course detail"
+            footer={
+              <div className="flex flex-col gap-2.5 sm:flex-row sm:flex-wrap">
                 <ButtonLink
                   href={itStudentConfig.applyUrl}
                   variant="primary"
@@ -58,13 +46,13 @@ export function ItStudentPrograms() {
                 </ButtonLink>
                 <Link
                   href={track.href}
-                  className="inline-flex min-h-9 items-center justify-center px-2 text-sm font-semibold text-brand-dark transition-colors hover:text-brand"
+                  className="inline-flex min-h-9 items-center justify-center px-1 text-sm font-semibold text-brand-dark transition-colors hover:text-brand"
                 >
-                  View course detail
+                  Full program page
                 </Link>
               </div>
-            </div>
-          </article>
+            }
+          />
         ))}
       </Grid>
     </Section>

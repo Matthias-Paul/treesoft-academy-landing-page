@@ -211,14 +211,14 @@ export function CourseDetail({ course }: CourseDetailProps) {
 
                 <div className="mt-6 flex flex-col gap-3">
                   <ButtonLink
-                    href={siteConfig.cta.href}
+                    href={siteConfig.portal.href}
                     variant="primary"
                     fullWidth
                   >
-                    Enroll / Reach Out
+                    {siteConfig.portal.label}
                   </ButtonLink>
-                  <ButtonLink href="/courses" variant="outline" fullWidth>
-                    All courses
+                  <ButtonLink href={siteConfig.cta.href} variant="outline" fullWidth>
+                    {siteConfig.cta.label}
                   </ButtonLink>
                 </div>
               </div>

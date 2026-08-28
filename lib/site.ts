@@ -14,7 +14,12 @@ export const siteConfig = {
   company: "Treesoft Nig. Ltd.",
   cta: {
     label: "Reach Out Now",
-    href: "mailto:temitope@treesoft.ng",
+    href: "/contact",
+  },
+  /** Regular student portal — update NEXT_PUBLIC_PORTAL_URL when live */
+  portal: {
+    label: "Enroll Now",
+    href: process.env.NEXT_PUBLIC_PORTAL_URL ?? "#",
   },
   /** Primary header CTA — IT Student landing (PRD). */
   itStudentCta: {
@@ -30,9 +35,10 @@ export const siteConfig = {
     { label: "Home", href: "/" },
     { label: "About", href: "/about" },
     { label: "Courses", href: "/courses" },
+    { label: "Contact", href: "/contact" },
   ],
   footerAbout: [
-    { label: "Contact Us", href: "mailto:temitope@treesoft.ng" },
+    { label: "Contact Us", href: "/contact" },
     { label: "Courses", href: "/courses" },
     { label: "IT Students", href: "/it-student" },
     { label: "About Us", href: "/about" },

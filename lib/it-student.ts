@@ -1,14 +1,8 @@
 import { getCourseBySlug } from "@/lib/courses";
 
-/**
- * IT Student landing page content.
- * Swap `applyUrl` when the Google Form / Typeform is ready.
- */
 export const itStudentConfig = {
   path: "/it-student",
-  /** Application form — mailto placeholder until the real form URL is set */
-  applyUrl:
-    "mailto:temitope@treesoft.ng?subject=IT%20Student%20Application%20%E2%80%94%20Treesoft%20Academy",
+  applyUrl: "/it-student/apply",
   applyOpensInNewTab: false,
   discountPercent: 50,
   discountLabel: "IT Students get 50% off — limited slots",

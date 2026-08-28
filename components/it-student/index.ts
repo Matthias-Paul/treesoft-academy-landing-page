@@ -1,3 +1,4 @@
+export { ItStudentApplyForm } from "./ItStudentApplyForm";
 export { ItStudentHero } from "./ItStudentHero";
 export { ItStudentWhyNow } from "./ItStudentWhyNow";
 export { ItStudentPrograms } from "./ItStudentPrograms";

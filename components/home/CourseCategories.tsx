@@ -101,7 +101,7 @@ export function CourseCategories() {
         ))}
       </Grid>
 
-      <div className="mt-10  flex flex-col items-center justify-center gap-3 sm:flex-row md:mt-14">
+      <div className="mt-10  flex  items-center justify-center gap-3 flex-row md:mt-14">
         
         <div className="text-white hover:text-black transition-colors duration-250 ease-[var(--ease)]" >
         <ButtonLink href="/courses" variant="primary" size="lg">
