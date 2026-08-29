@@ -44,3 +44,5 @@ export { TextLink } from "./TextLink";
 export type { TextLinkProps } from "./TextLink";
 
 export { VisuallyHidden } from "./VisuallyHidden";
+
+export { AppToaster } from "./AppToaster";

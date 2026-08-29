@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { toast } from "sonner";
 import { Button, Input, Label, Textarea } from "@/components/ui";
 import { contactSubjects } from "@/lib/contact";
 
@@ -26,7 +27,6 @@ const selectClassName =
 export function ContactForm() {
   const [form, setForm] = useState<FormState>(initialState);
   const [error, setError] = useState<string | null>(null);
-  const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
 
   function updateField<K extends keyof FormState>(key: K, value: FormState[K]) {
@@ -53,43 +53,49 @@ export function ContactForm() {
     const validationError = validate();
     if (validationError) {
       setError(validationError);
+      toast.error(validationError);
       return;
     }
 
     setSubmitting(true);
-    // Frontend-only for now — success UI; wire to an API later.
-    await new Promise((resolve) => setTimeout(resolve, 600));
-    setSubmitting(false);
-    setSubmitted(true);
-  }
 
-  if (submitted) {
-    return (
-      <div
-        className="rounded-md border border-brand/25 bg-brand-soft px-6 py-10 text-center sm:px-8"
-        role="status"
-      >
-        <p className="font-display text-2xl font-semibold text-brand-dark">
-          Message received
-        </p>
-        <p className="mx-auto mt-3 max-w-md text-base text-text-soft">
-          Thanks, {form.fullName.split(" ")[0]}. We&apos;ll review your note and
-          get back to you shortly.
-        </p>
-        <Button
-          type="button"
-          variant="outline"
-          className="mt-6"
-          onClick={() => {
-            setForm(initialState);
-            setSubmitted(false);
-            setError(null);
-          }}
-        >
-          Send another message
-        </Button>
-      </div>
-    );
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          fullName: form.fullName.trim(),
+          email: form.email.trim(),
+          phone: form.phone.trim() || undefined,
+          subject: form.subject,
+          message: form.message.trim(),
+        }),
+      });
+
+      const data = (await response.json()) as {
+        success?: boolean;
+        error?: string;
+      };
+
+      if (!response.ok || !data.success) {
+        throw new Error(data.error ?? "Unable to send message");
+      }
+
+      toast.success("Message sent", {
+        description: "Thanks for reaching out. we'll get back to you soon.",
+      });
+      setForm(initialState);
+      setError(null);
+    } catch (submitError) {
+      const message =
+        submitError instanceof Error
+          ? submitError.message
+          : "Unable to send message. Please try again.";
+      setError(message);
+      toast.error(message);
+    } finally {
+      setSubmitting(false);
+    }
   }
 
   return (

@@ -5,6 +5,7 @@ import {
   parseItApplicationBody,
   parseOptionalDate,
 } from "@/lib/it-application";
+import { sendItApplicationEmails } from "@/lib/mail/it-application";
 import { getItApplicationModel } from "@/lib/models/ItApplication";
 
 export const runtime = "nodejs";
@@ -33,9 +34,17 @@ export async function POST(request: Request) {
       status: "pending",
     });
 
+    const applicationId = application._id.toString();
+
+    try {
+      await sendItApplicationEmails(payload, applicationId);
+    } catch (mailError) {
+      console.error("[it-applications] email failed", mailError);
+    }
+
     return NextResponse.json({
       success: true,
-      id: application._id.toString(),
+      id: applicationId,
     });
   } catch (error) {
     const message = getErrorMessage(error, "Unable to submit application");

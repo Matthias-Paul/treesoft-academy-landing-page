@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Roboto, Roboto_Slab } from "next/font/google";
 import { Footer, Header } from "@/components/layout";
+import { AppToaster } from "@/components/ui";
 import { siteConfig } from "@/lib/site";
 import "./globals.css";
 
@@ -103,6 +104,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <Header />
         {children}
         <Footer />
+        <AppToaster />
       </body>
     </html>
   );
