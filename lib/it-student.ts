@@ -11,7 +11,7 @@ export const itStudentConfig = {
 export const itStudentHero = {
   headline: "Turn your IT into your first real tech skill.",
   subheadline:
-    "Choose any of our six tracks — Frontend, Backend, Mobile, UI/UX, Advanced React, or Full Stack — live and project-based, alongside your Industrial Training.",
+    "Choose any of our six tracks — Frontend, Backend, Mobile, UI/UX, WordPress / Shopify, or Full Stack — live and project-based, alongside your Industrial Training.",
   primaryCta: "Apply Now",
   secondaryCta: "See programs",
 } as const;
@@ -30,7 +30,7 @@ export const itStudentTrackSlugs = [
   "backend-development",
   "mobile-development",
   "ui-ux-design",
-  "advanced-react-nextjs",
+  "wordpress-shopify",
   "full-stack-web-development",
 ] as const;
 
@@ -58,10 +58,10 @@ export const itStudentTrackExtras: Record<
       "Design usable product flows and interfaces — from research through polished UI.",
     weeklyHours: "Live + self-paced · ~8–12 hrs/week",
   },
-  "advanced-react-nextjs": {
+  "wordpress-shopify": {
     outcomeLine:
-      "Level up into production React and Next.js patterns for scalable, professional apps.",
-    weeklyHours: "Live + advanced projects · ~8–12 hrs/week",
+      "Launch WordPress sites and Shopify stores clients can actually use and buy from.",
+    weeklyHours: "Live + build projects · ~8–12 hrs/week",
   },
   "full-stack-web-development": {
     outcomeLine:

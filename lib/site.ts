@@ -6,10 +6,10 @@ export const siteConfig = {
     "Join a community of innovators and master the skills that shape tomorrow’s technology. From frontend development to UI/UX design, Treesoft Academy guides your journey.",
   url: "https://treesoftacademy.com",
   locale: "en_NG",
-  phone: "+2349037019967",
+  phone: "+234 903 701 9967",
   phoneDisplay: "(+234) 9037019967",
   email: "info@treesoftacademy.com",
-  contactEmail: "temitope@treesoft.ng",
+  contactEmail: "contactus@treesoftacademy.com",
   address: "No. 6 Funsho Ajayi Street, Aguda, Surulere, Lagos.",
   company: "Treesoft Nig. Ltd.",
   cta: {

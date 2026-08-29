@@ -112,7 +112,7 @@ export function CourseDetail({ course }: CourseDetailProps) {
       </section>
 
       <Section spacious>
-        <div className="flex flex-col gap-14 lg:flex-row lg:items-start lg:gap-16 xl:gap-24">
+        <div className="flex flex-col gap-14 lg:flex-row lg:gap-16 xl:gap-24">
           <div className="flex min-w-0 flex-1 flex-col gap-12 md:gap-14">
             <DetailBlock id="about" title="About this program">
               <p className="m-0 max-w-2xl text-[1.0625rem] leading-[1.75] text-text-soft">
@@ -165,7 +165,7 @@ export function CourseDetail({ course }: CourseDetailProps) {
           </div>
 
           <aside className="w-full shrink-0 lg:w-[22rem]">
-            <div className="sticky top-28 flex flex-col gap-4">
+            <div className="flex flex-col gap-4 lg:sticky lg:top-24">
               <div className="rounded-[10px] border border-border bg-white p-6 shadow-[0_16px_40px_0_rgba(192,198,211,0.25)]">
                 <Text size="small" tone="muted" weight="medium">
                   {course.pricing.label}

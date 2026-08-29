@@ -17,7 +17,7 @@ export type CourseCategory = {
   description: string;
   summary: string;
   about: string;
-  icon: "code" | "server" | "mobile" | "design" | "react" | "fullstack";
+  icon: "code" | "server" | "mobile" | "design" | "cms" | "fullstack";
   image: string;
   duration: string;
   level: string;
@@ -382,89 +382,90 @@ export const courseCategories: CourseCategory[] = [
     ],
   },
   {
-    slug: "advanced-react-nextjs",
-    title: "Advanced React & Next.js",
-    description: "Build modern web applications with React and Next.js.",
+    slug: "wordpress-shopify",
+    title: "WordPress / Shopify",
+    description:
+      "Build professional websites and online stores with WordPress and Shopify.",
     summary:
-      "Level up into advanced React and Next.js patterns for scalable, production-grade applications.",
+      "Learn to design, build, and launch WordPress sites and Shopify stores — from themes and content to payments and launch.",
     about:
-      "Designed for developers who already know React basics, this advanced track focuses on architecture, TypeScript, performance, App Router patterns, and the practices used in professional Next.js codebases.",
-    icon: "react",
-    image: "/images/austin-distel-rxpThOwuVgE-unsplash.jpg",
+      "This program teaches you how to create real client-ready websites and ecommerce stores without starting from a blank code editor. You will learn WordPress for content-driven sites and Shopify for online stores, including themes, pages, products, payments, and the workflows freelancers and agencies use every day.",
+    icon: "cms",
+    image: "/images/business-woman-working-office-1-scaled.jpg",
     duration: "8–12 weeks",
-    level: "Intermediate to Advanced",
-    format: "Live sessions + advanced projects",
-    schedule: "Weekday evenings & weekend deep-dives",
+    level: "Beginner to Intermediate",
+    format: "Live sessions + build projects",
+    schedule: "Weekday evenings & weekend labs",
     pricing: {
-      amount: 280000,
+      amount: 250000,
       currency: "NGN",
       label: "Full program fee",
-      note: "Includes mentorship, advanced reviews, and certificate of completion.",
+      note: "Includes mentorship, project reviews, and certificate of completion.",
       installment: "Flexible installment plans available on request.",
     },
     includes: [
-      "Advanced live workshops",
-      "Architecture-focused projects",
-      "Senior-level code reviews",
+      "Live instructor-led classes",
+      "WordPress and Shopify projects",
+      "Theme setup and customization guidance",
       "Certificate of completion",
-      "Performance and SEO clinics",
+      "Freelance and client delivery tips",
     ],
     requirements: [
-      "Solid React fundamentals (components, hooks, props/state)",
-      "Basic TypeScript familiarity preferred",
-      "Experience building at least one React project",
-      "Comfort debugging and reading documentation",
+      "Basic computer literacy and reliable internet access",
+      "A laptop capable of running modern browsers",
+      "Willingness to practice building sites outside class hours",
+      "No coding experience required",
     ],
     outcomes: [
-      "Architect scalable React and Next.js applications",
-      "Use TypeScript effectively in complex codebases",
-      "Manage advanced state and data-fetching patterns",
-      "Optimize performance and production readiness",
+      "Build and launch professional WordPress websites",
+      "Set up and customize a Shopify store for real products",
+      "Manage pages, products, media, and basic SEO",
+      "Deliver client-ready sites with a clear handoff process",
     ],
     careerOutcomes: [
-      "Mid-level Frontend Developer",
-      "Next.js Engineer",
-      "Frontend Engineer (React)",
-      "Full Stack Engineer (frontend-heavy)",
+      "WordPress Developer / Site Builder",
+      "Shopify Store Specialist",
+      "Freelance Web Designer",
+      "Ecommerce Assistant / Coordinator",
     ],
     outline: [
       {
-        title: "Module 1 — Advanced React",
+        title: "Module 1 — WordPress Foundations",
         lessons: [
-          "Composition and advanced hooks",
-          "Performance patterns",
-          "Testing strategies for UI",
+          "Hosting, domains, and WordPress setup",
+          "Themes, pages, posts, and media",
+          "Menus, plugins, and site structure",
         ],
       },
       {
-        title: "Module 2 — Next.js Deep Dive",
+        title: "Module 2 — WordPress Delivery",
         lessons: [
-          "App Router architecture",
-          "Server Components and data fetching",
-          "Routing, caching, and rendering strategies",
+          "Page builders and layout systems",
+          "Forms, speed, and basic SEO",
+          "Launch checklist and client handoff",
         ],
       },
       {
-        title: "Module 3 — TypeScript & State",
+        title: "Module 3 — Shopify Store Setup",
         lessons: [
-          "TypeScript for large applications",
-          "Advanced state management",
-          "Forms and complex client interactions",
+          "Store setup, themes, and navigation",
+          "Products, collections, and media",
+          "Payments, shipping, and checkout basics",
         ],
       },
       {
-        title: "Module 4 — Production Excellence",
+        title: "Module 4 — Shopify Growth & Polish",
         lessons: [
-          "SEO and metadata",
-          "Monitoring and error boundaries",
-          "Deployment and release workflows",
+          "Homepage and product page conversion",
+          "Apps, analytics, and order workflows",
+          "Portfolio store project and launch",
         ],
       },
     ],
     whoFor: [
-      "Developers with React fundamentals",
-      "Frontend engineers leveling up to senior work",
-      "Teams adopting Next.js in production",
+      "Beginners who want to build websites fast",
+      "Entrepreneurs launching an online store",
+      "Freelancers aiming to offer WordPress or Shopify services",
     ],
   },
   {

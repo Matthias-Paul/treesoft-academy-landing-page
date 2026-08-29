@@ -14,21 +14,6 @@ export const aboutValues = [
     description:
       "We foster a supportive community where students learn, grow, and succeed together.",
   },
-  {
-    title: "Mission",
-    description:
-      "Igniting curiosity and motivation through learning and mentorship from experts.",
-  },
-  {
-    title: "Vision",
-    description:
-      "Lead in transforming learners into innovators, empowering tech-driven creation, problem-solving, and leadership.",
-  },
-  {
-    title: "Growth",
-    description:
-      "We foster continuous learning and personal development for both students and instructors.",
-  },
 ] as const;
 
 export const aboutTeam = [
@@ -61,4 +46,4 @@ export const aboutVision =
   "To be the leading tech academy that transforms passionate learners into industry-ready innovators. We envision a future where technology empowers individuals to create, solve, and lead with confidence, shaping the digital world of tomorrow.";
 
 /** Values shown on the Courses page (matches the live site). */
-export const coursesPageValues = aboutValues.slice(0, 4);
+export const coursesPageValues = aboutValues;
