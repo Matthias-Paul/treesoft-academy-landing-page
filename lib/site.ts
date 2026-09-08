@@ -46,7 +46,6 @@ export const siteConfig = {
   footerLegal: [
     { label: "Privacy Policy", href: "/privacy" },
     { label: "Cookie Policy", href: "/cookies" },
-    { label: "Terms of Use", href: "/terms" },
   ],
 } as const;
 
